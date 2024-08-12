@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+
+  /* Custom component styles */
+  *{
+    @apply p-0 m-0 box-border;
+  }
+  .container {
+    @apply max-w-[1300px] w-full mx-auto;
+  }
+
+  .menu-item {
+    @apply text-black text-base font-medium;
+
+    &>a:focus {
+      @apply bg-[#FC8A06] py-2 px-5 rounded-[120px] text-white;
+    }
+  }
+
+  .deals-link{
+    @apply text-base text-black p-5;
+
+    &:hover{
+      @apply text-[#FC8A06] border border-[#FC8A06] rounded-[120px]
+    }
+    &:has(a:focus) {
+      @apply border-b text-[#FC8A06] border-[#FC8A06];
+    }
+    a{
+      @apply w-full h-full p-5;
+    }
+  }
 }
